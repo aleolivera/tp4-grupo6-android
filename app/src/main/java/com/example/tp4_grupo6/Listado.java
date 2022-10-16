@@ -7,6 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import com.example.tp4_grupo6.conexion.DataBuscarArticulo;
+import com.example.tp4_grupo6.conexion.DataListarArticulos;
+import com.example.tp4_grupo6.entidades.Articulo;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +37,7 @@ public class Listado extends Fragment {
         // Required empty public constructor
     }
 
+    ListView ListViewArticulos;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -59,6 +69,18 @@ public class Listado extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_listado, container, false);
+        //return inflater.inflate(R.layout.fragment_listado, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_listado, container, false);
+        ListViewArticulos=(ListView)view.findViewById(R.id.ListViewArticulos);
+
+        ArrayList<String> ListaInfo;
+        ArrayList<Articulo> ListaArticulos;
+
+        DataListarArticulos task= new DataListarArticulos(getContext(),ListViewArticulos);
+        task.execute();
+
+
+        return view;
     }
 }

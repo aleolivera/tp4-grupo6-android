@@ -12,7 +12,12 @@
         android:layout_height="match_parent"
         android:textSize="40sp"
         android:gravity="center"
-        android:text="@string/tab_title_3" />
+        android:text="" />
+
+    <ListView
+        android:id="@+id/ListViewArticulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </FrameLayout>

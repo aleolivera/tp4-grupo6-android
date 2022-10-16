@@ -53,11 +53,10 @@ public class Articulo {
 
     @Override
     public String toString() {
-        return "Articulo{" +
-                "id=" + id +
-                ", categoria=" + categoria.toString() +
-                ", nombre='" + nombre + '\'' +
-                ", stock=" + stock +
-                '}';
+        return "Articulo: \n" +
+                "id= " + id + "\n" +
+                "categoria= " + categoria.toString() + "\n" +
+                "nombre= '" + nombre + '\'' + "\n" +
+                "stock= " + stock + "\n" ;
     }
 }
