@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">tp4-grupo6</string>
+    <string name="tab_title_1">Alta</string>
+    <string name="tab_title_2">Modificacion</string>
+    <string name="tab_title_3">Listado</string>
+
+    <string name="tv_id">ID</string>
+    <string name="tv_nombre">Nombre Producto</string>
+    <string name="tv_stock">Stock</string>
+    <string name="tv_categoria">Categoria</string>
+
+    <string name="btn_agregar">Agregar</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="btn_modificar">Modificar</string>
+
+    <string name="color_gris">#bdbdbd</string>
+
+</resources>
