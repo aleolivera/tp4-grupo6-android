@@ -12,8 +12,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.tp4_grupo6.conexion.DataAltaGuardar;
 import com.example.tp4_grupo6.conexion.DataBuscarArticulo;
 import com.example.tp4_grupo6.conexion.DataListarCategorias;
+import com.example.tp4_grupo6.conexion.DataModificarArticulo;
+import com.example.tp4_grupo6.entidades.Articulo;
+import com.example.tp4_grupo6.entidades.Categoria;
 
 public class Modificacion extends Fragment {
     private EditText etId;
@@ -65,7 +69,13 @@ public class Modificacion extends Fragment {
 
     private void modificarArticulo(){
 
-        Toast.makeText(getContext(), "Sin Implementar", Toast.LENGTH_SHORT).show();
+        Integer id=Integer.parseInt(this.etId.getText().toString());
+        String nombre=this.etNombre.getText().toString();
+        Integer stock=Integer.parseInt(this.etStock.getText().toString());
+        Categoria categoria= (Categoria)this.spCategoria.getSelectedItem();
+        Articulo articulo=new Articulo(id,categoria,nombre,stock);
 
+        DataModificarArticulo task = new DataModificarArticulo(getContext(),articulo);
+        task.execute();
     }
 }

@@ -7,6 +7,7 @@ import com.example.tp4_grupo6.entidades.Articulo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class DataModificarArticulo extends AsyncTask<String,Void,String> {
     private Context context;
@@ -20,16 +21,28 @@ public class DataModificarArticulo extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... strings) {
         String response="";
         int filas=0;
-        String query="";
-        try
-        {
-
+        String query="update articulo " +
+                "set nombre = '"+this.articulo.getNombre()+"'," +
+                " stock ='"+this.articulo.getStock()+"',"+
+                " idCategoria ='"+this.articulo.getCategoria().getId()+"' "+
+                " where Id ="+this.articulo.getId()+";";
+        try {
+            Class.forName(DataDB.DRIVER);
+            Connection con= DriverManager.getConnection(DataDB.URLMYSQL,DataDB.USER,DataDB.PASS);
+            Statement statement= con.createStatement();
+            filas= statement.executeUpdate(query);
+            con.close();
+            if(filas>0)
+                response="Articulo modificado";
+            else
+                response="No se pudo modificar el Articulo";
         }
-        catch (Exception e)
-        {
+        catch (Exception e){
             e.printStackTrace();
             response=e.getMessage();
+
         }
+
         return response;
     }
 

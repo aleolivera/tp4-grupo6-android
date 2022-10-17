@@ -31,6 +31,7 @@ public class DataAltaGuardar extends AsyncTask<String,Void,String> {
             Connection con= DriverManager.getConnection(DataDB.URLMYSQL,DataDB.USER,DataDB.PASS);
             Statement statement= con.createStatement();
             filas= statement.executeUpdate(query);
+            con.close();
             if(filas>0)
                 response="Articulo guardado";
             else

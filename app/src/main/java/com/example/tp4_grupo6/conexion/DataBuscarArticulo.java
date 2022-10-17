@@ -50,8 +50,11 @@ public class DataBuscarArticulo extends AsyncTask<Integer,Void,String> {
                 articulo= new Articulo(id,categoria,nombre,stock);
                 response="Busqueda Exitosa";
             }
-            else
+            else {
+                con.close();
                 response="No se encontro articulo";
+            }
+
         }
         catch (Exception e)
         {

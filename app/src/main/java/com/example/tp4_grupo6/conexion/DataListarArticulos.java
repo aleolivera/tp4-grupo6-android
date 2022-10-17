@@ -59,12 +59,14 @@ public class DataListarArticulos extends AsyncTask<String,Void,String> {
 
                 listaArticulo.add(Art);
             }
+            con.close();
         }
         catch (Exception e)
         {
             e.printStackTrace();
             response="Error en la conexion";
         }
+
         return response;
     }
 

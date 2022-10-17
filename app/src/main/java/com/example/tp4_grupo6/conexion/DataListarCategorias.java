@@ -43,6 +43,8 @@ public class DataListarCategorias extends AsyncTask<String,Void,String> {
                 String descripcion=resultSet.getString("descripcion");
                 listaCategoria.add(new Categoria(id,descripcion));
             }
+
+            con.close();
         }
         catch (Exception e)
         {
